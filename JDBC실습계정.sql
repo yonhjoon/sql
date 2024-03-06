@@ -1,0 +1,52 @@
+-- 맨위에 DROP을 생성된 테이블 반대순으로 적어놓으면 나중에 잘못되었을때 
+-- 지우기 편하게 만들어놓는다
+DROP TABLE  MEMBER;
+DROP TABLE TEST;
+
+CREATE TABLE TEST(
+    TNO NUMBER,
+    TNAME VARCHAR2(20),
+    TDATE DATE
+);
+
+SELECT * FROM TEST;
+
+CREATE TABLE MEMBER(
+    USERNO NUMBER PRIMARY KEY, -- 작품 번호
+    USERID VARCHAR2(15) NOT NULL, --작품 이름
+    USERPWD VARCHAR2(15) NOT NULL, --작품 고유번호
+    USERNAME VARCHAR2(20) NOT NULL, --화가 이름
+    EMAIL VARCHAR2(30), --화가 이메일
+    PHONE CHAR(11), --화가 전화번호
+    ADDRESS VARCHAR2(100), --화가 주소
+    HOBBY VARCHAR2(50), -- 크기
+    ENROLLDATE DATE DEFAULT SYSDATE NOT NULL --등록일
+);
+
+DROP SEQUENCE SEQ_USERNO;
+CREATE SEQUENCE SEQ_USERNO
+NOCACHE;
+
+INSERT INTO MEMBER
+VALUES(SEQ_USERNO.NEXTVAL, '모나리자','001','레오나르도 다 빈치','admin@iei.or.kr','01012345678','이탈리아 르네상스','53 x 77 cm', '1503~1506년경으로 추정');
+
+INSERT INTO MEMBER
+VALUES(SEQ_USERNO.NEXTVAL, '최후의 만찬','002','레오나르도 다 빈치','admin@iei.or.kr','01012345678','이탈리아 르네상스','880 x 700 cm', '1490년');
+
+COMMIT;
+
+SELECT * FROM MEMBER;
+
+
+
+
+
+
+
+
+
+
+
+
+
+

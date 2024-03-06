@@ -1,0 +1,3 @@
+EXTRACT( YEAR FROM SYSDATE ) - ( 19 || SUBSTR (주민번호, 1, 2) ) AS "나이"
+
+SELECT TO_CHAR((TO_DATE ('SYSDATE','YYYYMMDD')),'DAY') FROM DUAL; AS "특정요일 구하기"
